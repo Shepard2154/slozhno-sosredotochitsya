@@ -1,5 +1,194 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  --padding-left-right: 10px;
+  padding: 0 var(--padding-left-right);
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: var(--main-font-size);
+  background-color: var(--bg-color);
+}
+
+.header {
+  height: 100vh;
+  background-image: url(../images/cover-image-dark.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.header::before {
+}
+
+.header__text {
+  width: 100%;
+  font-weight: 700;
+}
+
+.header__decor {
+  position: absolute;
+  top: 20px;
+  right: 29px;
+  color: var(--accent-color);
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+.header__decor::after {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-left: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px currentColor;
+  background-color: var(--accent-color);
+}
+
+.header__title {
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  text-transform: lowercase;
+  text-shadow: 4px 4px 0 var(--accent-color);
+  background-attachment: fixed;
+}
+
+@media (768px < width < 1024px) {
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+.title-decor {
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+@media (768px < width < 1024px) {
+
+  .content {
+    gap: 80px;
+  }
+}
+
+.content__section {
+  display: grid;
+  gap: 20px;
+}
+
+.content .content__section:nth-child(odd) {
+  grid-template-columns: repeat(auto-fill, minmax(351.03px, 1fr));
+}
+
+.content__section-header {
+  color: var(--accent-color);
+  font-size: inherit;
+}
+
+.content__section-header:nth-of-type(odd) {
+  grid-row-start: span 2;
+  grid-row-end: 2;
+}
+
+.content__section-advice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* @media (375px < width) {
+
+  .content__section-advice {
+    gap: 20px;
+  }
+} */
+
+.content__section-advice-header {
+  font-size: inherit;
+}
+
+.content__section-advice-subheader {
+  font-weight: inherit;
+}
+
+.content__section-advice-text {
+  font-size: inherit;
+}
+
+.content__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  gap: 20px;
+}
+
+.content__gallery-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (width > 375px) {
+
+  .content__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-areas:
+      'sunset sunset ice-cream'
+      'tape books ice-cream'
+      'tape street street';
+    gap: 20px;
+  }
+
+  .content__gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sunset {
+    grid-area: sunset;
+  }
+
+  .ice-cream {
+    grid-area: ice-cream;
+  }
+
+  .tape {
+    grid-area: tape;
+  }
+
+  .books {
+    grid-area: books;
+  }
+
+  .street {
+    grid-area: street;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  text-transform: lowercase;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+@media (768px < width < 1024px) {
+
+  .footer {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
 }
