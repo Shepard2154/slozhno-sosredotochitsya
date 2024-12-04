@@ -17,6 +17,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  max-width: 668px;
 }
 
 .header {
@@ -277,6 +278,7 @@
   
   .page {
     max-height: 768px;
+    max-width: 1024px;
     overflow-x: hidden;
   }
 
@@ -337,6 +339,7 @@
 
   .page {
     max-height: 1024px;
+    max-width: 1024px;
     overflow-x: hidden;
   }
 
@@ -362,6 +365,7 @@
 
   .page {
     max-height: 1024px;
+    max-width: 768px;
     overflow-x: hidden;
   }
 
