@@ -367,6 +367,10 @@
     gap: 80px;
   }
 
+  .content + .content__section {
+    margin-block-start: 16px;
+  }
+
   .content__section:has(.content__gallery) {
     gap: 20px;
   }
@@ -375,12 +379,17 @@
     grid-template-columns: 314.96px 648.92px;
   }
 
-  .content .content__section:nth-child(even) {
+  .content__section-list {
+    display: grid;
     grid-template-columns: repeat(3, 315px);
     gap: 20px;
   }
 
   .content__section-header {
     inline-size: 314.96px;
+  }
+
+  .footer {
+    margin-block-start: 16px;
   }
 }
