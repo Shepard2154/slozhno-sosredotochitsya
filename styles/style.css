@@ -270,10 +270,15 @@
 }
 
 @media (375.5px < width < 769px) {
+  
+  .page {
+    max-height: 768px;
+    overflow: hidden;
+  }
 
   .header {
     grid-template-rows: 25.4em 2.2fr 465px;
-    /* margin-bottom: 377px; */
+    margin-bottom: 6px;
     padding-inline: 20px;
   }
 
@@ -326,6 +331,11 @@
 
 @media (769px < width < 1024px) {
 
+  .page {
+    max-height: 1024px;
+    overflow: hidden;
+  }
+
   .header__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
@@ -341,6 +351,11 @@
 }
 
 @media (1024px <= width) {
+
+  .page {
+    max-height: 1024px;
+    overflow: hidden;
+  }
 
   .header {
     grid-template-rows: 18.4em 2.2fr 319px;
