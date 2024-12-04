@@ -367,7 +367,7 @@
 
   .header {
     grid-template-rows: 18.4em 2.2fr 319px;
-    /* margin-bottom: 120px; */
+    margin-bottom: 20px;
     padding-inline: 26px;
   }
 
