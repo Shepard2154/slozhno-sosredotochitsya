@@ -7,6 +7,7 @@
   display: grid;
   gap: 40px;
   padding: 0 var(--padding-left-right);
+  overflow-x: hidden;
   color: var(--text-color);
   font-family: var(--main-font);
   font-weight: 400;
@@ -22,6 +23,7 @@
   position: relative;
   display: grid;
   grid-template-rows: 12.4em min-content;
+  height: 100vh;
   padding: 10px;
   min-block-size: 100vh;
 }
@@ -271,6 +273,7 @@
 
   .header {
     grid-template-rows: 25.4em 2.2fr 465px;
+    margin-bottom: 377px;
     padding-inline: 20px;
   }
 
@@ -315,6 +318,10 @@
   .content__section-header {
     inline-size: 236px;
   }
+
+  .footer {
+    margin-bottom: 200px;
+  }
 }
 
 @media (769px < width < 1024px) {
@@ -337,8 +344,8 @@
 
   .header {
     grid-template-rows: 18.4em 2.2fr 319px;
+    margin-bottom: 120px;
     padding-inline: 20px;
-    margin-bottom: 10px;
   }
 
   .header__theme-menu {
