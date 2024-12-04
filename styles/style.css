@@ -338,6 +338,7 @@
   .header {
     grid-template-rows: 18.4em 2.2fr 319px;
     padding-inline: 20px;
+    margin-bottom: 10px;
   }
 
   .header__theme-menu {
@@ -402,6 +403,6 @@
   }
 
   .footer {
-    margin-block-start: 16px;
+    margin-block-start: 71px;
   }
 }
