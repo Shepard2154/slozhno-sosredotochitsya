@@ -22,7 +22,7 @@
   position: relative;
   display: grid;
   grid-template-rows: 12.4em min-content;
-  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  padding: 10px;
   min-block-size: 100vh;
 }
 
@@ -101,6 +101,7 @@
   position: absolute;
   top: 10px;
   right: 19px;
+  visibility: var(--is-visible-rec);
   color: var(--accent-color);
   font-family: inherit;
   text-transform: uppercase;
@@ -125,13 +126,6 @@
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
-@media (768px < width < 1024px) {
-
-  .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-}
-
 .title-decor {
   color: var(--header-color);
   background-color: var(--accent-color);
@@ -141,13 +135,6 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-}
-
-@media (768px < width < 1024px) {
-
-  .content {
-    gap: 80px;
-  }
 }
 
 .content__section {
@@ -221,6 +208,18 @@
   object-fit: cover;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  text-transform: lowercase;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
 @media (width > 375.5px) {
 
   .content__gallery {
@@ -261,19 +260,60 @@
   }
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: var(--title-color);
-  font-weight: 700;
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  text-transform: lowercase;
-  text-shadow: 2px 2px 0 var(--accent-color);
+@media (375.5px < width < 769px) {
+
+  .header {
+    grid-template-rows: 25.4em 2.2fr 465px;
+    padding-inline: 20px;
+  }
+
+  .header__text {
+    justify-self: end;
+    align-self: center;
+    inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
+  }
+
+  .header__decor {
+    top: 20px;
+    right: 29px;
+  }
+
+  .header::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+
+  .header::after {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .content__section:has(.content__gallery) {
+    gap: 20px;
+  }
+
+  .content .content__section:nth-child(odd) {
+    grid-template-columns: 236px 472px;
+  }
+
+  .content__section-header {
+    inline-size: 236px;
+  }
 }
 
 @media (768px < width < 1024px) {
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .content {
+    gap: 80px;
+  }
 
   .footer {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);

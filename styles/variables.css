@@ -13,6 +13,7 @@
   --text-color: #f1b2ce;
   --header-color: #000028;
   --content-header-color: var(--accent-color);
+  --is-visible-rec: visible;
 
   --main-font: 'IBM Plex Mono';
   --main-font-size: 18px;
