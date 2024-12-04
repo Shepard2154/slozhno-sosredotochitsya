@@ -231,6 +231,10 @@
 
 @media (375.5px < width) {
 
+  .page {
+    overflow-x: hidden;
+  }
+
   .content__gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, 1fr);
@@ -273,7 +277,7 @@
   
   .page {
     max-height: 768px;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .header {
@@ -333,7 +337,11 @@
 
   .page {
     max-height: 1024px;
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+  .header {
+    margin-bottom: 20px;
   }
 
   .header__title {
@@ -354,7 +362,7 @@
 
   .page {
     max-height: 1024px;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .header {
