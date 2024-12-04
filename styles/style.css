@@ -12,7 +12,7 @@
   font-weight: 400;
   font-size: var(--main-font-size);
   background-color: var(--bg-color);
-  background-image: url(../images/cover-image-dark.png);
+  background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -49,14 +49,9 @@
 }
 
 .header__theme-menu {
-  /* margin-left: auto; */
-  /* grid-area: header__theme-menu; */
-  /* grid-row: 1 / span 1; */
-  /* margin-inline-start: 39px; */
   display: flex;
   justify-content: end;
   align-items: center;
-  /* margin-block: 65px; */
 }
 
 .header__theme-menu-list {
@@ -69,20 +64,35 @@
 .header__theme-menu-button {
   border: 1px solid transparent;
   padding: 2px 12px;
-  color: var(--accent-color);
+  color: var(--content-header-color);
   line-height: 18px;
   text-transform: lowercase;
   background: transparent;
   cursor: pointer;
 }
 
+.header__theme-menu-button_active {
+  outline: 1px solid currentColor;
+  cursor: default;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--outline-color-40);
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end-color: currentColor;
+}
+
 .header__text {
   align-self: center;
   width: 100%;
   font-weight: 700;
-  /* grid-area: header__text;
-  grid-column: 1 / span 2;
-  grid-row: 3 / span 1; */
   font-size: inherit;
   line-height: inherit;
 }
@@ -123,7 +133,7 @@
 }
 
 .title-decor {
-  color: var(--bg-color);
+  color: var(--header-color);
   background-color: var(--accent-color);
 }
 
@@ -155,7 +165,7 @@
 }
 
 .content__section-header {
-  color: var(--accent-color);
+  color: var(--content-header-color);
   font-size: inherit;
 }
 
@@ -175,13 +185,6 @@
   gap: 20px;
 }
 
-/* @media (375px < width) {
-
-  .content__section-advice {
-    gap: 20px;
-  }
-} */
-
 .content__section-advice-header {
   font-size: inherit;
   line-height: inherit;
@@ -195,6 +198,11 @@
 .content__section-advice-text {
   font-size: inherit;
   line-height: inherit;
+}
+
+.text-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .content__gallery {
@@ -213,7 +221,7 @@
   object-fit: cover;
 }
 
-@media (width > 375px) {
+@media (width > 375.5px) {
 
   .content__gallery {
     display: grid;
