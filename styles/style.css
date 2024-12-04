@@ -1,35 +1,86 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   --padding-left-right: 10px;
   padding: 0 var(--padding-left-right);
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   color: var(--text-color);
   font-family: var(--main-font);
   font-weight: 400;
   font-size: var(--main-font-size);
   background-color: var(--bg-color);
-}
-
-.header {
-  height: 100vh;
   background-image: url(../images/cover-image-dark.png);
   background-repeat: no-repeat;
   background-position: center center;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  position: relative;
+  height: 100vh;
 }
 
 .header::before {
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-end: 1px solid var(--accent-color);
+  border-block-start: 1px solid var(--accent-color);
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--accent-color);
+  border-block-end: 1px solid var(--accent-color);
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
+}
+
+.header__theme-menu {
+  grid-area: header__theme-menu;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  justify-self: end;
+  margin-block: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 2px 12px;
+  color: var(--accent-color);
+  line-height: 18px;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
 }
 
 .header__text {
+  grid-area: header__text;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1;
+  align-self: start;
   width: 100%;
   font-weight: 700;
 }
 
 .header__decor {
   position: absolute;
-  top: 20px;
-  right: 29px;
+  top: 10px;
+  right: 19px;
   color: var(--accent-color);
   font-family: inherit;
   text-transform: uppercase;
@@ -47,11 +98,13 @@
 }
 
 .header__title {
+  grid-area: header__title;
+  grid-row: 2 / span 1;
   color: var(--title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 82.5%;
   text-transform: lowercase;
   text-shadow: 4px 4px 0 var(--accent-color);
-  background-attachment: fixed;
 }
 
 @media (768px < width < 1024px) {
