@@ -1,8 +1,11 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+/* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  --padding-left-right: 10px;
+  --padding-left-right: 0;
+  display: grid;
+  gap: 40px;
   padding: 0 var(--padding-left-right);
   color: var(--text-color);
   font-family: var(--main-font);
@@ -16,18 +19,20 @@
 }
 
 .header {
-  display: grid;
   position: relative;
-  height: 100vh;
+  display: grid;
+  grid-template-rows: 12.4em min-content;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  min-block-size: 100vh;
 }
 
 .header::before {
   content: '';
   position: absolute;
-  inline-size: 25px;
-  block-size: 25px;
   border-inline-end: 1px solid var(--accent-color);
   border-block-start: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
   inset-inline-end: 10px;
   inset-block-start: 10px;
 }
@@ -35,20 +40,23 @@
 .header::after {
   content: '';
   position: absolute;
-  inline-size: 25px;
-  block-size: 25px;
   border-inline-start: 1px solid var(--accent-color);
   border-block-end: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
   inset-inline-start: 10px;
   inset-block-end: 10px;
 }
 
 .header__theme-menu {
-  grid-area: header__theme-menu;
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
-  justify-self: end;
-  margin-block: 65px;
+  /* margin-left: auto; */
+  /* grid-area: header__theme-menu; */
+  /* grid-row: 1 / span 1; */
+  /* margin-inline-start: 39px; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /* margin-block: 65px; */
 }
 
 .header__theme-menu-list {
@@ -69,12 +77,14 @@
 }
 
 .header__text {
-  grid-area: header__text;
-  grid-column: 1 / span 2;
-  grid-row: 3 / span 1;
-  align-self: start;
+  align-self: center;
   width: 100%;
   font-weight: 700;
+  /* grid-area: header__text;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 1; */
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .header__decor {
@@ -98,11 +108,9 @@
 }
 
 .header__title {
-  grid-area: header__title;
-  grid-row: 2 / span 1;
   color: var(--title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  line-height: 82.5%;
+  line-height: 100.7px;
   text-transform: lowercase;
   text-shadow: 4px 4px 0 var(--accent-color);
 }
@@ -135,6 +143,11 @@
 .content__section {
   display: grid;
   gap: 20px;
+  padding-inline: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.content__section:has(.content__gallery) {
+  gap: 10px;
 }
 
 .content .content__section:nth-child(odd) {
@@ -154,6 +167,11 @@
 .content__section-advice {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  line-height: 23.4px;
+}
+
+.content__section-advice:has(.content__section-advice) {
   gap: 20px;
 }
 
@@ -166,20 +184,28 @@
 
 .content__section-advice-header {
   font-size: inherit;
+  line-height: inherit;
 }
 
 .content__section-advice-subheader {
   font-weight: inherit;
+  line-height: inherit;
 }
 
 .content__section-advice-text {
   font-size: inherit;
+  line-height: inherit;
 }
 
 .content__gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, 1fr);
-  gap: 20px;
+  gap: 10px;
+}
+
+.content__gallery-header {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .content__gallery-image {
