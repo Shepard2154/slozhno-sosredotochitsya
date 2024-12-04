@@ -234,6 +234,7 @@
 
   .page {
     overflow-x: hidden;
+    max-width: 1024px;
   }
 
   .content__gallery {
@@ -278,7 +279,7 @@
   
   .page {
     max-height: 768px;
-    max-width: 1024px;
+    max-width: 768px;
     overflow-x: hidden;
   }
 
@@ -364,8 +365,8 @@
 @media (1024px <= width) {
 
   .page {
-    max-height: 1024px;
-    max-width: 768px;
+    max-height: 768px;
+    max-width: 1024px;
     overflow-x: hidden;
   }
 
