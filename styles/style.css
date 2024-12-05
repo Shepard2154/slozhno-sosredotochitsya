@@ -269,8 +269,8 @@
     gap: 20px;
   }
 
-  .causes,
-  .gallery {
+  .section .causes,
+  .section .gallery {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -341,9 +341,15 @@
     flex-direction: row;
   }
 
-  /* .content .section:nth-child(odd) {
+  .section {
     grid-template-columns: 314.96px 648.92px;
-  } */
+  }
+
+  .causes,
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 
   .one-direction {
     grid-template-columns: repeat(3, 315px);
