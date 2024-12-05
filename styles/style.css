@@ -3,52 +3,48 @@
 /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 
 .page {
-  --padding-left-right: 0;
-  display: grid;
-  gap: 40px;
-  padding: 0 var(--padding-left-right);
-  overflow-x: hidden;
   color: var(--text-color);
-  font-family: var(--main-font);
+  font-family: var(--main-font, monospace);
   font-weight: 400;
   font-size: var(--main-font-size);
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
   background-attachment: fixed;
-  max-width: 668px;
 }
 
 .header {
   position: relative;
   display: grid;
-  grid-template-rows: 12.4em min-content;
+  grid-template-rows: 1fr min-content 1fr;
   height: 100vh;
+  min-height: 668px;
   padding: 10px;
-  min-block-size: 100vh;
+}
+
+.framed-zone::after,
+.framed-zone::before {
+  --frame-line-length: 10px;
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
 }
 
 .framed-zone::before {
-  content: '';
-  position: absolute;
   border-inline-end: 1px solid var(--accent-color);
   border-block-start: 1px solid var(--accent-color);
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-end: 10px;
-  inset-block-start: 10px;
+  inset-inline-end: var(--frame-line-length);
+  inset-block-start: var(--frame-line-length);
 }
 
 .framed-zone::after {
-  content: '';
-  position: absolute;
   border-inline-start: 1px solid var(--accent-color);
   border-block-end: 1px solid var(--accent-color);
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-start: 10px;
-  inset-block-end: 10px;
+  inset-inline-start: var(--frame-line-length);
+  inset-block-end: var(--frame-line-length);
 }
 
 .header__theme-menu {
@@ -93,6 +89,7 @@
 }
 
 .header__text {
+  justify-self: right;
   align-self: center;
   width: 100%;
   font-weight: 700;
@@ -138,55 +135,55 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding-block-start: 6px;
 }
 
-.content__section {
+.section {
   display: grid;
   gap: 20px;
   padding-inline: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
-.content__section:has(.content__gallery) {
+.why {
+  margin-block-start: var(--intersectional-interval);
+}
+
+.section:has(.gallery__container) {
   gap: 10px;
 }
 
-.content .content__section:nth-child(odd) {
-  grid-template-columns: repeat(auto-fill, minmax(351.03px, 1fr));
-}
-
-.content__section-header {
+.section-header {
+  width: 100%;
   color: var(--content-header-color);
   font-size: inherit;
 }
 
-.content__section-header:nth-of-type(odd) {
-  grid-row-start: span 2;
-  grid-row-end: 2;
+.section-list {
+  display: grid;
+  gap: 20px;
 }
 
-.content__section-advice {
+.section-chapter {
   display: flex;
   flex-direction: column;
   gap: 10px;
   line-height: 23.4px;
 }
 
-.content__section-advice:has(.content__section-advice) {
+.section-chapter:has(.section-chapter) {
   gap: 20px;
 }
 
-.content__section-advice-header {
+.section-chapter-header {
   font-size: inherit;
   line-height: inherit;
 }
 
-.content__section-advice-subheader {
+.section-chapter-subheader {
   font-weight: inherit;
   line-height: inherit;
 }
 
-.content__section-advice-text {
+.section-chapter-text {
   font-size: inherit;
   line-height: inherit;
 }
@@ -196,25 +193,27 @@
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.content__gallery {
+.how-subsection__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery__container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 1fr);
   gap: 10px;
 }
 
-.content__gallery-header {
+.gallery-header {
   font-family: inherit;
   font-size: inherit;
 }
 
-.content__gallery-image {
+.gallery__container-item {
+  --ss: red;
   width: 100%;
   object-fit: cover;
-}
-
-.content__section-list {
-  display: grid;
-  gap: 20px;
 }
 
 .footer {
@@ -222,7 +221,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  margin-block-start: var(--intersectional-interval);
   color: var(--title-color);
   font-weight: 700;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
@@ -230,14 +230,54 @@
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-@media (375.5px < width) {
+@media (width >= 768px) {
 
-  .page {
-    overflow-x: hidden;
-    max-width: 1024px;
+  .header {
+    padding-inline: 20px;
   }
 
-  .content__gallery {
+  .header__title,
+  .footer {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    /* justify-self: end; */
+    inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
+  }
+
+  .header__decor {
+    top: 20px;
+    right: 29px;
+  }
+
+  .framed-zone {
+    --frame-line-length: 20px;
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .section:has(.gallery__container) {
+    gap: 20px;
+  }
+
+  /* .content .section-list {
+    grid-template-columns: 236px 472px;
+    gap: 20px;
+  } */
+
+  .one-direction {
+    grid-template-columns: 236px 472px;
+    gap: 20px;
+  }
+
+  .section-header {
+    max-inline-size: 236px;
+  }
+
+  .gallery__container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 1fr);
     grid-template-rows: repeat(auto-fill, 1fr);
@@ -248,7 +288,7 @@
     gap: 20px;
   }
 
-  .content__gallery-image {
+  .gallery__container-item {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -275,105 +315,19 @@
   }
 }
 
-@media (375.5px < width < 769px) {
-  
-  .page {
-    max-height: 768px;
-    max-width: 768px;
-    overflow-x: hidden;
-  }
+@media (width >= 1024px) {
 
   .header {
-    grid-template-rows: 25.4em 2.2fr 465px;
-    margin-bottom: 12px;
-    padding-inline: 20px;
+    padding-inline: 26px;
+  }
+
+  .header__title,
+  .footer {
+    font-size: 157px;
   }
 
   .header__text {
-    justify-self: end;
-    align-self: center;
-    inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
-  }
-
-  .header__decor {
-    top: 20px;
-    right: 29px;
-  }
-
-  .framed-zone::before {
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
-  }
-
-  .framed-zone::after {
-    inset-inline-start: 20px;
-    inset-block-end: 20px;
-  }
-
-  .content {
-    gap: 80px;
-  }
-
-  .content__section:has(.content__gallery) {
-    gap: 20px;
-  }
-
-  .content .content__section:nth-child(odd) {
-    grid-template-columns: 236px 472px;
-  }
-
-  .content__section-list {
-    display: grid;
-    gap: 20px;
-  }
-
-  .content__section-header {
-    inline-size: 236px;
-  }
-
-  .footer {
-    margin-bottom: 200px;
-  }
-}
-
-@media (769px < width < 1024px) {
-
-  .page {
-    max-height: 1024px;
-    max-width: 1024px;
-    overflow-x: hidden;
-  }
-
-  .header {
-    margin-bottom: 20px;
-  }
-
-  .header__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
-  .content {
-    gap: 80px;
-  }
-
-  .footer {
-    margin-block-start: 205px;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-}
-
-@media (1024px <= width) {
-
-  .page {
-    max-height: 768px;
-    max-width: 1024px;
-    overflow-x: hidden;
-  }
-
-  .header {
-    grid-template-rows: 18.4em 2.2fr 319px;
-    margin-bottom: 20px;
-    padding-inline: 26px;
+    max-inline-size: 491px;
   }
 
   .header__theme-menu {
@@ -385,59 +339,15 @@
     flex-direction: row;
   }
 
-  .header__decor {
-    top: 20px;
-    right: 29px;
-  }
-
-  .framed-zone::before {
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
-  }
-
-  .framed-zone::after {
-    inset-inline-start: 20px;
-    inset-block-end: 20px;
-  }
-
-  .header__title,
-  .footer {
-    font-size: 157px;
-  }
-
-  .header__text {
-    justify-self: end;
-    align-self: center;
-    inline-size: 491px;
-  }
-
-  .content {
-    gap: 80px;
-  }
-
-  .content + .content__section {
-    margin-block-start: 16px;
-  }
-
-  .content__section:has(.content__gallery) {
-    gap: 20px;
-  }
-
-  .content .content__section:nth-child(odd) {
+  /* .content .section:nth-child(odd) {
     grid-template-columns: 314.96px 648.92px;
-  }
+  } */
 
-  .content__section-list {
-    display: grid;
+  .one-direction {
     grid-template-columns: repeat(3, 315px);
-    gap: 20px;
   }
 
-  .content__section-header {
-    inline-size: 314.96px;
-  }
-
-  .footer {
-    margin-block-start: 71px;
+  .section-header {
+    max-inline-size: 314.96px;
   }
 }

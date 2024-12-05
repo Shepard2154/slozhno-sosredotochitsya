@@ -22,23 +22,5 @@
 
   --main-font: 'IBM Plex Mono';
   --main-font-size: 18px;
-}
-
-@media (prefers-color-scheme: light) {
-
-  :root {
-    --bg-color: #fff1f7;
-    --bg-image: url(../images/cover-image-light.png);
-    --title-color: #ffc2e6;
-
-    --accent-color: #ff8dcb;
-    --outline-color-40: #35343066;
-    --text-color: #353430;
-    --header-color: var(--text-color);
-    --content-header-color: var(--text-color);
-    --is-visible-rec: hidden;
-
-    --main-font: 'IBM Plex Mono';
-    --main-font-size: 18px;
-  }
+  --intersectional-interval: 40px;
 }
