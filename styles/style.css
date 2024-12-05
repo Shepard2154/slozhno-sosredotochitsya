@@ -351,7 +351,7 @@
 
   .section {
     grid-template-columns: 314.96px 648.92px;
-    margin: auto;
+    /* margin: auto; */
   }
 
   .causes,
