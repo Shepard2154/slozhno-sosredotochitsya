@@ -269,8 +269,8 @@
     gap: 20px;
   }
 
-  .section .causes,
-  .section .gallery {
+  .causes,
+  .gallery {
     grid-template-columns: 1fr;
     gap: 20px;
   }
