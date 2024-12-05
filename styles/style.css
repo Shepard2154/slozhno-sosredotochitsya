@@ -26,7 +26,6 @@
 
 .framed-zone::after,
 .framed-zone::before {
-  --frame-line-length: 10px;
   content: '';
   position: absolute;
   inline-size: 25px;
@@ -232,6 +231,10 @@
 
 @media (width >= 768px) {
 
+  :root {
+    --intersectional-interval: 60px;
+  }
+
   .header {
     padding-inline: 20px;
   }
@@ -242,7 +245,6 @@
   }
 
   .header__text {
-    /* justify-self: end; */
     inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
   }
 
@@ -259,17 +261,17 @@
     gap: 80px;
   }
 
+  .section {
+    grid-template-columns: 236px 472px;
+  }
+
   .section:has(.gallery__container) {
     gap: 20px;
   }
 
-  /* .content .section-list {
-    grid-template-columns: 236px 472px;
-    gap: 20px;
-  } */
-
-  .one-direction {
-    grid-template-columns: 236px 472px;
+  .causes,
+  .gallery {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 

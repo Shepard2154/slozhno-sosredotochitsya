@@ -23,4 +23,5 @@
   --main-font: 'IBM Plex Mono';
   --main-font-size: 18px;
   --intersectional-interval: 40px;
+  --frame-line-length: 10px;
 }
